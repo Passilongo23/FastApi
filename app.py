@@ -3,6 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get('/Ola')
+@app.get('/')
 def Read_root():
     return {'message': 'Olá Mundo!'}
