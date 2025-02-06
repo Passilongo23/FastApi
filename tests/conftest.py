@@ -16,8 +16,9 @@ def client():
 def session():
     engine = create_engine('sqlite:///:memory:')
     table_registry.metadata.create_all(engine)
-
+    # gerenciamento de contexto
     with Session(engine) as session:
+        # yield cria uma lista de dados que vão sendo consumidos sob demanda
         yield session
 
     table_registry.metadata.drop_all(engine)
